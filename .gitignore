@@ -1,0 +1,55 @@
+# Ignore build directory
+build/
+
+# Ignore environment directories
+env/
+venv/
+.venv/
+ENV/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore distribution files
+dist/
+*.egg-info/
+
+# Ignore C build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.dylib
+
+# Ignore CMake build directory
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore compiled static libraries
+*.lib
+
+# Ignore compiled dynamic libraries
+*.dll
+*.dylib
+*.so
+
+# Ignore debug files
+*.pdb
+*.ilk
+*.dSYM/
