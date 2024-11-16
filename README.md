@@ -14,10 +14,7 @@ git clone https://github.com/yourusername/Spit.git
 cd Spit
 
 # Build the project using gcc
-gcc -o spit src/main.c src/lib/lib.c -luser32
-
-# Alternatively, you can use make
-make
+gcc -o spit src/main.c src/lib/lib.c
 ```
 
 ## Usage
