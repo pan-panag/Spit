@@ -39,7 +39,7 @@ dist/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
+
 
 # Ignore compiled static libraries
 *.lib
@@ -53,3 +53,5 @@ Makefile
 *.pdb
 *.ilk
 *.dSYM/
+
+FILETREE
