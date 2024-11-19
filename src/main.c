@@ -4,8 +4,7 @@
 #include <stdbool.h>
 #include <windows.h>
 
-#include "./lib/lib.h"
-#include "./lib/ansi_formats.h"
+#include "./dependencies/main_lib.h"
 
 #define SPIT_READLINE_BUFSIZE 1024
 #define SPIT_TOKEN_BUFSIZE 64

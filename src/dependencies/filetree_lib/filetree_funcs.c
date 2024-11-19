@@ -1,30 +1,5 @@
-#include "lib.h"
+#include "filetree_funcs.h"
 
-// Define the list of built-in commands
-char *builtin_str[] = {
-    "help",
-    "ls",
-    "dir",
-    "cd",
-    "clear",
-    "exit"
-};
-
-// Define the corresponding functions
-int (*builtin_func[]) (char **) = {
-    &spit_help,
-    &spit_ls,
-    &spit_dir,
-    &spit_cd,
-    &spit_clear,
-    &spit_exit
-};
-
-int spit_num_builtins() {
-    return sizeof(builtin_str) / sizeof(char *);
-}
-
-// Implementation of the built-in functions
 int spit_cd(char **args) {
     if (args[1] == NULL) {
         fprintf(stderr, "spit: expected argument to \"cd\"\n");
@@ -34,18 +9,6 @@ int spit_cd(char **args) {
         }
     }
     return 1;
-}
-
-int spit_help(char **args) {
-    printf("Built-in commands:\n");
-    for (int i = 0; i < spit_num_builtins(); i++) {
-        printf("  %s\n", builtin_str[i]);
-    }
-    return 1;
-}
-
-int spit_exit(char **args) {
-    return 0; // Return 0 to indicate exit
 }
 
 int spit_ls(char **args) {
@@ -102,36 +65,5 @@ int spit_dir(char **args) {
     } while (FindNextFile(hFind, &findFileData) != 0);
 
     FindClose(hFind); // Close the handle
-    return 1; // Indicate success
-}
-
-int spit_clear(char **args) {
-    // Get the handle to the console output
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hConsole == INVALID_HANDLE_VALUE) {
-        fprintf(stderr, "spit: clear: unable to get console handle\n");
-        return 1; // Indicate failure
-    }
-
-    // Get the console screen buffer size
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-    if (!GetConsoleScreenBufferInfo(hConsole, &csbi)) {
-        fprintf(stderr, "spit: clear: unable to get console buffer info\n");
-        return 1; // Indicate failure
-    }
-
-    // Calculate the number of characters in the buffer
-    DWORD consoleSize = csbi.srWindow.Right * csbi.srWindow.Bottom;
-    
-    // Fill the console buffer with spaces
-    DWORD written;
-    if (!FillConsoleOutputCharacter(hConsole, ' ', consoleSize, (COORD){0, 0}, &written)) {
-        fprintf(stderr, "spit: clear: unable to fill console output\n");
-        return 1; // Indicate failure
-    }
-
-    // Reset the cursor position to the top left corner
-    SetConsoleCursorPosition(hConsole, (COORD){0, 0});
-
     return 1; // Indicate success
 }

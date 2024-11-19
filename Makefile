@@ -6,11 +6,11 @@ CFLAGS = -Wall -g
 
 # Directories
 SRC_DIR = src
-LIB_DIR = $(SRC_DIR)/lib
+LIB_DIR = $(SRC_DIR)/dependencies
 BUILD_DIR = build
 
 # Source files
-SRC = $(SRC_DIR)/main.c $(LIB_DIR)/lib.c
+SRC = $(SRC_DIR)/main.c $(LIB_DIR)/default_lib/default_funcs.c $(LIB_DIR)/filetree_lib/filetree_funcs.c
 
 # Output executable
 OUT = $(BUILD_DIR)/spit
