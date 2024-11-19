@@ -10,7 +10,12 @@ LIB_DIR = $(SRC_DIR)/dependencies
 BUILD_DIR = build
 
 # Source files
-SRC = $(SRC_DIR)/main.c $(LIB_DIR)/default_lib/default_funcs.c $(LIB_DIR)/filetree_lib/filetree_funcs.c
+# Source files
+SRC = \
+	$(SRC_DIR)/main.c \
+	$(LIB_DIR)/default_lib/default_funcs.c \
+	$(LIB_DIR)/filetree_lib/filetree_funcs.c
+
 
 # Output executable
 OUT = $(BUILD_DIR)/spit
